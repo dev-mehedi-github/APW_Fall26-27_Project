@@ -1,107 +1,115 @@
-# Setup & Run Guide
+# Backend Project
 
-````bash
+**Course:** Adv. Programming Web Technology  
+**Section:** B
+
+### Developed By
+* **Mehedi Hasan** — ID: `22-48502-3`
+* **Abdul Aziz Jihan** — ID: `22-46518-1`
+* **Md. Farhan Ferdous Omar** — ID: `24-56430-1`
+
+---
+
+# Setup & Run Guide
 
 This guide will help you set up and run the NestJS backend project locally.
 
 ## 🚀 Prerequisites
+
 Before starting, ensure the following are installed:
-- Node.js v22 or later
-- PostgreSQL
-- Redis
-- npm, yarn, or pnpm (any package manager)
-- Docker (optional, for containerized setup)
+* Node.js v22 or later
+* PostgreSQL
+* NestJS CLI (install globally if not already installed):
+  ```bash
+  npm install -g @nestjs/cli
+  ```
 
 ---
 
 ## 📦 Install Dependencies
-Use any of the following commands:
 
-```bash
-pnpm install
+1. **Install the core project dependencies:**
+   ```bash
+   pnpm install
+   ```
 
+2. **Install additional required packages (if needed):**
+   ```bash
+   pnpm add class-validator class-transformer bcrypt
+   pnpm add -D typescript @types/bcrypt
+   ```
 
-````
+---
 
-# 🔧 Environment Variables
+## 🔧 Environment Variables
 
-Go to the project root directory
-Find the file .env.example
-Create a .env file in the same directory
-Copy all content from .env.example into .env
-Update values based on your local environment
-Example:
+1. Go to the project root directory.
+2. Find the `.env.example` file and create a `.env` file in the same directory.
+3. Copy all content from `.env.example` into `.env` and update the values based on your local environment.
 
+**Example:**
 ```bash
 cp .env.example .env
 ```
 
-# 🗄️ Database Setup & Migrations
+---
 
-Create the database
+## 🗄️ Database Setup & Migrations
 
+1. **Create the database:**
+   ```bash
+   createdb student_health
+   ```
+
+2. **Run migrations:**
+   ```bash
+   pnpm run migration:run
+   ```
+
+---
+
+## 🌱 Seed Admin Account
+
+If the project seeder is configured, run:
 ```bash
-create db student_health
-
+pnpm seeder:run:dev
 ```
 
-Run migrations
+**Demo admin credentials used during development:**
+* **Email:** `admin@hospital.com`
+* **Password:** `Admin@12345`
 
-```bash
-pnpm run migration:run
+> **Note:** These credentials are for local demonstration only. Change them before production deployment.
 
+---
 
-```
+## ▶️ Running the Backend (Development)
 
-
-# ▶️ Running the Backend (Development)
-
-Start the NestJS app:
-
+Start the NestJS development server:
 ```bash
 pnpm start:dev
-
-
 ```
 
-# 🏗️ Production Build
+The backend should now be running at: http://localhost:5001
 
-Create a production build:
+---
 
-```bash
-pnpm build
-# or
-yarn build
-# or
-npm run build
+## 📁 Project Structure
 
-```
-
-Start the production server:
-
-```bash
-pnpm start:prod
-# or
-yarn start:prod
-# or
-npm run start:prod
-
-```
-
-# 📁 Project Structure (Overview)
-
-```bash
-/project-root
-  ├─ src/
-  │   ├─ modules/
-  │   ├─ common/
-  │   ├─ config/
-  │   ├─ main.ts
-  │   └─ app.module.ts
-  ├─ migrations/
-  ├─ test/
-  ├─ .env.example
-  ├─ package.json
-  └─ tsconfig.json
-
+```text
+src/
+├── common/
+│   ├── decorators/
+│   ├── enums/
+│   └── guard/
+├── modules/
+│   ├── auth/
+│   ├── user/
+│   ├── doctor/
+│   ├── department/
+│   ├── doctor-department/
+│   ├── slot/
+│   └── appointments/
+├── app.module.ts
+└── main.ts
 ```
