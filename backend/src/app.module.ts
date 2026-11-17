@@ -7,7 +7,7 @@ import global_config from "@/config/global_config";
 import { BullModule } from "@nestjs/bull";
 import { UserModule } from "@/modules/user/user.module";
 import { AuthModule } from "@/modules/auth/auth.module";
-import { DoctorModule } from './modules/doctor/doctor.module';
+import { DoctorModule } from '@/modules/doctor/doctor.module';
 import { DepartmentModule } from "./modules/department/department.module";
 import { DoctorDepartmentModule } from "./modules/doctor-department/doctor-department.module";
 import { SlotModule } from "./modules/slot/slot.module";
