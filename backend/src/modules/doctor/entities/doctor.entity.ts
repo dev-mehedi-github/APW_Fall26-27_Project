@@ -1,5 +1,6 @@
 import { Column, CreateDateColumn, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn, } from "typeorm";
 import { User } from "../../user/entities/user.entity";
+import { DoctorInformation } from "../../doctor-information/entities/doctor-information.entity";
 
 @Entity({ name: "doctors" })
 export class Doctor {
@@ -24,6 +25,11 @@ export class Doctor {
 
     @Column({ type: "text", nullable: true })
     bio?: string;
+    @OneToOne(
+        () => DoctorInformation,
+        (doctorInformation) => doctorInformation.doctor,
+    )
+    doctorInformation?: DoctorInformation;
 
     @CreateDateColumn({ name: "createdAt", type: "timestamp" })
     createdAt!: Date;
