@@ -401,3 +401,7 @@ package-lock.json
 dist
 .webpack
 .serverless/**/*.zip
+
+
+src/postman/globals/workspace.globals.yaml
+src/.postman/resources.yaml
