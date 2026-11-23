@@ -13,6 +13,7 @@ import { DoctorDepartmentModule } from "./modules/doctor-department/doctor-depar
 import { SlotModule } from "./modules/slot/slot.module";
 import { AppointmentModule } from "./modules/appointments/appointment.module";
 import { DoctorInformationModule } from "./modules/doctor-information/doctor-information.module";
+import { LaboratoryModule } from "./modules/laboratory/laboratory.module";
 
 @Module({
   imports: [
@@ -35,7 +36,8 @@ import { DoctorInformationModule } from "./modules/doctor-information/doctor-inf
     DoctorDepartmentModule,
     SlotModule,
     AppointmentModule,
-    DoctorInformationModule
+    DoctorInformationModule,
+LaboratoryModule,
   ],
   controllers: [AppController],
   providers: [AppService],
