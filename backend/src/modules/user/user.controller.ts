@@ -20,6 +20,8 @@ export class UserController {
     }
 
     @Get()
+    @UseGuards(JwtGuard, RolesGuard)
+    @Roles(Role.ADMIN)
     async getUsers() {
         return this.userService.getUsers();
     }
@@ -32,6 +34,8 @@ export class UserController {
     }
 
     @Patch(":id")
+    @UseGuards(JwtGuard, RolesGuard)
+    @Roles(Role.PATIENT, Role.ADMIN)
     async updateUser(
         @Param("id", ParseUUIDPipe) id: string,
         @Body() dto: UpdateUserDto,
@@ -40,6 +44,8 @@ export class UserController {
     }
 
     @Delete(":id")
+    @UseGuards(JwtGuard, RolesGuard)
+    @Roles(Role.ADMIN)
     async deleteUser(@Param("id", ParseUUIDPipe) id: string) {
         return this.userService.deleteUser(id);
     }
