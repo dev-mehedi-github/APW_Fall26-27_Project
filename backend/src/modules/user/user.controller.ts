@@ -48,5 +48,6 @@ export class UserController {
     @Roles(Role.ADMIN)
     async deleteUser(@Param("id", ParseUUIDPipe) id: string) {
         return this.userService.deleteUser(id);
+        
     }
 }
