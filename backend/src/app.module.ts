@@ -16,6 +16,7 @@ import { DoctorInformationModule } from "./modules/doctor-information/doctor-inf
 import { LaboratoryModule } from "./modules/laboratory/laboratory.module";
 import { LabReportModule } from "./modules/lab-report/lab-report.module";
 import { BillingModule } from "./modules/billing/billing.module";
+import { PaymentModule } from "./modules/payment/payment.module";
 
 @Module({
   imports: [
@@ -42,6 +43,7 @@ import { BillingModule } from "./modules/billing/billing.module";
 LaboratoryModule,
 LabReportModule,
 BillingModule,
+PaymentModule,
   ],
   controllers: [AppController],
   providers: [AppService],
